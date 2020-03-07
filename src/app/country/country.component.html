@@ -1,3 +1,9 @@
-<p>
-  country works!
-</p>
+<div>
+  <span>Country: </span>
+  <select (change)="onSelect($event.target.value)">
+    <option value="">-- Select a Country --</option>
+    <option *ngFor="let country of countries" value= {{country.code}}>
+      {{country.name}}
+    </option>
+  </select>
+</div>
