@@ -5,7 +5,7 @@
   </h1>
   <img width="250" height="300" alt="Angular Logo" src="/assets/images/HomePageIcon.png">
   <div class="address-section">
-    <app-country></app-country>
+    <app-country (countryCodeSelected)="getCountryFields($event)"></app-country>
   </div>
   
 </div>
