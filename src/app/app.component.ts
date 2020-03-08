@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'address-app';
+  countryCode;
 
   getCountryFields(countryCode){
+    this.countryCode = countryCode;
     console.log("CountryCode captured",countryCode)
 
   }

@@ -1,11 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div style="text-align:center" >
   <h1>
     Welcome to {{ title }}!
   </h1>
   <img width="250" height="300" alt="Angular Logo" src="/assets/images/HomePageIcon.png">
-  <div class="address-section">
+  <div class="address-section" style="text-align:center">
     <app-country (countryCodeSelected)="getCountryFields($event)"></app-country>
+    <app-address-fields *ngIf="countryCode"></app-address-fields>
   </div>
   
 </div>

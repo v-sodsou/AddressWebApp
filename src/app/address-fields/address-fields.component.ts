@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-address-fields',
@@ -6,10 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./address-fields.component.scss']
 })
 export class AddressFieldsComponent implements OnInit {
+  @Input() addressFieldTemplate;
+
+  addressFields = [];
+
+  fields : any = {
+    address1: { displayName : "Street 1", format : "[0-9][A-Z]", type: "string"},
+    address2: {displayName : "Street 1", format : "[0-9][A-Z]", type: "string"},
+    city: {displayName : "City", format : "[A-Z]",type: "string"},
+    state: {displayName : "State", format : "[A-Z]",type: "list"},
+    zipcode: {displayName : "Zip Code", format : "[A-Z]",type: "string"}
+  };
 
   constructor() { }
 
   ngOnInit() {
+    let keys = Object.keys(this.fields);
+    keys.forEach(element => {
+      let field = this.fields[element].displayName;
+      this.addressFields.push(field);
+    });
+
+    console.log("this.addressFields length",this.addressFields.length)
   }
 
 }
