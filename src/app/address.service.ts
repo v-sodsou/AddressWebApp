@@ -9,7 +9,8 @@ export class AddressService {
   constructor(private http: HttpClient) { }
 
   getCountries(){
-
+    let url ="https://locathost:5000/getAllCountries/"
+    return this.http.get<any>(url);
   }
 
   getCountryFormat(countryCode){
