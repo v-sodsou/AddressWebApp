@@ -9,6 +9,7 @@ export class AddressFieldsComponent implements OnInit {
   @Input() addressFieldTemplate;
 
   addressFields = [];
+  addressFieldTypes = [];
 
   fields : any = {
     address1: { displayName : "Street 1", format : "[0-9][A-Z]", type: "string"},
@@ -22,8 +23,12 @@ export class AddressFieldsComponent implements OnInit {
 
   ngOnInit() {
     let keys = Object.keys(this.fields);
+    let field;
+    let type;
     keys.forEach(element => {
-      let field = this.fields[element].displayName;
+      field = this.fields[element].displayName;
+      type = this.fields[element].type;
+      this.addressFieldTypes.push(type);
       this.addressFields.push(field);
     });
 
