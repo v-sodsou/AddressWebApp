@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-address-fields',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AddressFieldsComponent implements OnInit {
   @Input() addressFieldTemplate;
+  // @Output() getAddress;
 
   addressFields = [];
   addressFieldTypes = [];
@@ -45,6 +46,10 @@ export class AddressFieldsComponent implements OnInit {
   selected(event: any){
     this.result[event.target.id] = event.target.value;
     console.log("result",this.result)
+  }
+
+  searchAddress(){
+    // this.getAddress.emit(this.result);
   }
 
 }
