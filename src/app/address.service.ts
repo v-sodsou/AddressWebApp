@@ -14,8 +14,9 @@ export class AddressService {
   }
 
   getCountryFormat(countryCode){
-    
-    }
+    let url = `https://locathost:5000/getAllCountries/searchAddressFormat/${countryCode}`;
+    return this.http.get<any>(url);
+  }
 
   postAddress(){
     
