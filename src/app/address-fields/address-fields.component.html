@@ -2,8 +2,8 @@
   <ng-container *ngIf="addressFields.length > 0">
     <div *ngFor="let field of addressFields;let i = index" class="field-section">
       <span>{{field}} : </span>
-      <input [id]="keys[i]" type="text" *ngIf="addressFieldTypes[i] == 'string'"/>
-      <select [id]="keys[i]" *ngIf="addressFieldTypes[i] == 'list'">
+      <input [id]="keys[i]" (keyup)="onKey($event)" type="text" *ngIf="addressFieldTypes[i] == 'string'"/>
+      <select [id]="keys[i]" (change)="selected($event)" *ngIf="addressFieldTypes[i] == 'list'">
         <option value="">-- Select --</option>
       </select>
     </div>

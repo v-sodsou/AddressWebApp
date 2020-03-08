@@ -11,6 +11,7 @@ export class AddressFieldsComponent implements OnInit {
   addressFields = [];
   addressFieldTypes = [];
   keys = [];
+  result : any = {};
 
   fields : any = {
     address1: { displayName : "Street 1", format : "[0-9][A-Z]", type: "string"},
@@ -34,6 +35,16 @@ export class AddressFieldsComponent implements OnInit {
     });
 
     console.log("this.addressFields length",this.addressFields.length)
+  }
+
+  onKey(event: any) { 
+    this.result[event.target.id] = event.target.value;
+    console.log("result",this.result)
+  }
+
+  selected(event: any){
+    this.result[event.target.id] = event.target.value;
+    console.log("result",this.result)
   }
 
 }
