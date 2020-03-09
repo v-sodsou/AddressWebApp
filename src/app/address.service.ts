@@ -18,8 +18,10 @@ export class AddressService {
     return this.http.get<any>(url);
   }
 
-  postAddress(){
-    
+  postAddress(address){
+    console.log("Address to send", address);
+    let url = "https://locathost:5000/postAddress";
+    return this.http.post<any>(url, address);
   }
 
   postAddressFormat(){
