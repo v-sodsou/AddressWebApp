@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AddressService } from './address.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ export class AppComponent {
   title = 'address-app';
   countryCode;
 
+  constructor(private addressService:AddressService){}
+
   getCountryFields(countryCode){
     this.countryCode = countryCode;
     console.log("CountryCode captured",countryCode);
@@ -17,5 +20,6 @@ export class AppComponent {
   searchAddress(addressFields) {
    addressFields['Country'] = this.countryCode;
    console.log("Object that will be sent to backend",addressFields)
+   this.addressService.searchAddress(addressFields);
   }
 }

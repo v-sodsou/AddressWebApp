@@ -27,6 +27,7 @@ export class AddressService {
   }
 
   searchAddress(address){
+    console.log("Address to send", address);
     let url = "https://locathost:5000/searchAddress";
     return this.http.post<any>(url, address);
   }

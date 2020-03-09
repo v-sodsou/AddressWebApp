@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CountryComponent } from './country/country.component';
 import { AddressFieldsComponent } from './address-fields/address-fields.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AddressFieldsComponent } from './address-fields/address-fields.componen
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
     
   ],
