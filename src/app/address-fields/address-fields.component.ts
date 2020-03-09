@@ -10,7 +10,7 @@ export class AddressFieldsComponent implements OnInit {
   @Output() getAddress = new EventEmitter();
   @Output() saveAddress = new EventEmitter();
 
-
+  error;
   addressFields = [];
   addressFieldTypes = [];
   addressFieldValues = [];
@@ -54,7 +54,20 @@ export class AddressFieldsComponent implements OnInit {
   }
 
   postAddress(){
+    this.checkIfFieldValuesFilled(this.result);
     this.saveAddress.emit(this.result)
+  }
+
+  checkIfFieldValuesFilled(addressFields){
+    let count = 0
+    let reqFieldLen = this.keys.length;
+    this.keys.forEach(element => {
+      if(addressFields[element]){
+        count++;
+      }
+    });
+    this.error = count == reqFieldLen ? false:true;
+    console.log("error",this.error)
   }
 
 }

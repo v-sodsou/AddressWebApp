@@ -14,6 +14,9 @@
       <button class="button" (click)="searchAddress()">Search Address</button>
       <button class="button" (click)="postAddress()">Save Address</button>
     </div>
+    <div class="error-msg" *ngIf="error">
+      <span >All fields are mandatory. Please fill in all the fields</span>
+    </div>
    
   </ng-container>
 </div>
