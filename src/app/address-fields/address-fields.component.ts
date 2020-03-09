@@ -29,15 +29,10 @@ export class AddressFieldsComponent implements OnInit {
 
   ngOnInit() {
     this.keys = Object.keys(this.fields);
-    let field;
-    let type;
     this.keys.forEach(element => {
-      field = this.fields[element].displayName;
-      type = this.fields[element].type;
       this.addressFieldValues.push(this.fields[element].value);
-      console.log("value",this.fields[element].value)
-      this.addressFieldTypes.push(type);
-      this.addressFields.push(field);
+      this.addressFieldTypes.push(this.fields[element].type);
+      this.addressFields.push(this.fields[element].displayName);
     });
 
     
