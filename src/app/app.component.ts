@@ -11,7 +11,11 @@ export class AppComponent {
 
   getCountryFields(countryCode){
     this.countryCode = countryCode;
-    console.log("CountryCode captured",countryCode)
+    console.log("CountryCode captured",countryCode);
+  }
 
+  searchAddress(addressFields) {
+   addressFields['Country'] = this.countryCode;
+   console.log("Object that will be sent to backend",addressFields)
   }
 }
