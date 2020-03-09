@@ -22,4 +22,10 @@ export class AppComponent {
    console.log("Object that will be sent to backend",addressFields)
    this.addressService.searchAddress(addressFields);
   }
+
+  saveAddress(addressFields){
+    addressFields['Country'] = this.countryCode;
+    console.log("Object that will be posted to backend",addressFields)
+    this.addressService.postAddress(addressFields);
+  }
 }

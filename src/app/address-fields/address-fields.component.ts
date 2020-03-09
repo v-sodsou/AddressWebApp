@@ -8,6 +8,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AddressFieldsComponent implements OnInit {
   @Input() addressFieldTemplate;
   @Output() getAddress = new EventEmitter();
+  @Output() saveAddress = new EventEmitter();
+
 
   addressFields = [];
   addressFieldTypes = [];
@@ -50,6 +52,10 @@ export class AddressFieldsComponent implements OnInit {
 
   searchAddress(){
     this.getAddress.emit(this.result);
+  }
+
+  postAddress(){
+    this.saveAddress.emit(this.result)
   }
 
 }
