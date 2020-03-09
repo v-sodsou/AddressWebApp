@@ -50,6 +50,7 @@ export class AddressFieldsComponent implements OnInit {
   }
 
   searchAddress(){
+    this.error = false;
     this.getAddress.emit(this.result);
   }
 
