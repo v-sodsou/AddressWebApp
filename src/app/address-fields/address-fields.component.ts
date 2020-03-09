@@ -13,15 +13,16 @@ export class AddressFieldsComponent implements OnInit {
 
   addressFields = [];
   addressFieldTypes = [];
+  addressFieldValues = [];
   keys = [];
   result : any = {};
 
   fields : any = {
-    address1: { displayName : "Street 1", format : "[0-9][A-Z]", type: "string"},
-    address2: {displayName : "Street 1", format : "[0-9][A-Z]", type: "string"},
-    city: {displayName : "City", format : "[A-Z]",type: "string"},
-    state: {displayName : "State", format : "[A-Z]",type: "list"},
-    zipcode: {displayName : "Zip Code", format : "[A-Z]",type: "string"}
+    address1: { displayName : "Street 1", format : "[0-9][A-Z]", type: "string",value:[]},
+    address2: {displayName : "Street 1", format : "[0-9][A-Z]", type: "string",value:[]},
+    city: {displayName : "City", format : "[A-Z]",type: "string",value:[]},
+    state: {displayName : "State", format : "[A-Z]",type: "list", value:['WA','CA']},
+    zipcode: {displayName : "Zip Code", format : "[A-Z]",type: "string",value:[]}
   };
 
   constructor() { }
@@ -33,10 +34,13 @@ export class AddressFieldsComponent implements OnInit {
     this.keys.forEach(element => {
       field = this.fields[element].displayName;
       type = this.fields[element].type;
+      this.addressFieldValues.push(this.fields[element].value);
+      console.log("value",this.fields[element].value)
       this.addressFieldTypes.push(type);
       this.addressFields.push(field);
     });
 
+    
     console.log("this.addressFields length",this.addressFields.length)
   }
 

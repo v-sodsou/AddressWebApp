@@ -3,8 +3,11 @@
     <div *ngFor="let field of addressFields;let i = index" class="field-section">
       <span>{{field}} : </span>
       <input [id]="keys[i]" (keyup)="onKey($event)" type="text" *ngIf="addressFieldTypes[i] == 'string'"/>
-      <select [id]="keys[i]" (change)="selected($event)" *ngIf="addressFieldTypes[i] == 'list'">
+      <select [id]="keys[i]" (change)="selected($event)" *ngIf="addressFieldTypes[i] == 'list' ">
         <option value="">-- Select --</option>
+        <option *ngFor="let entry of addressFieldValues[i]" value= {{entry}}>
+          {{entry}}
+        </option>
       </select>
     </div>
     <div class="button-group">
