@@ -9,19 +9,19 @@ export class AddressService {
   constructor(private http: HttpClient) { }
 
   getCountries(){
-    let url ="https://locathost:5000/getAllCountries/"
+    let url ="https://locathost:5000/api/addresses/getAllCountries/"
     return this.http.get<any>(url);
   }
 
   getCountryFormat(countryCode){
-    let url = `https://locathost:5000/searchAddressFormat/${countryCode}`;
+    let url = `https://locathost:5000/api/addresses/searchAddressFormat/${countryCode}`;
     return this.http.get<any>(url);
   }
 
   postAddress(address){
     console.log("Address to send", address);
-    let url = "https://locathost:5000/postAddress";
-    return this.http.post<any>(url, address);
+    let url = "https://locathost:5000/api/addresses/postAddress";
+    return this.http.post<any>(url, {address});
   }
 
   postAddressFormat(){
@@ -30,8 +30,8 @@ export class AddressService {
 
   searchAddress(address){
     console.log("Address to send", address);
-    let url = "https://locathost:5000/searchAddress";
-    return this.http.post<any>(url, address);
+    let url = "https://locathost:5000/api/addresses/searchAddress";
+    return this.http.post<any>(url, {address});
   }
 
 }
