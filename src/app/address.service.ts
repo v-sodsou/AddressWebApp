@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class AddressService {
 
   constructor(private http: HttpClient) { }
+
 
   getCountries(){
     let url ="https://locathost:5000/api/addresses/getAllCountries/"
@@ -28,10 +29,15 @@ export class AddressService {
     
   }
 
-  searchAddress(address){
+  searchAddress(address) {
     console.log("Address to send", address);
-    let url = "https://locathost:5000/api/addresses/searchAddress";
-    return this.http.post<any>(url, {address});
+    let url = "https://localhost:44365/searchAddress";
+    let request = this.http.post<any>(url, address, {
+      headers: new HttpHeaders({
+        ["Content-Type"]: 'application/json',
+      })
+    });
+    var response = request.subscribe();
   }
 
 }

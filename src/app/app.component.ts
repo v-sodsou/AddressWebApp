@@ -17,10 +17,17 @@ export class AppComponent {
     console.log("CountryCode captured",countryCode);
   }
 
+  //searchAddress(addressFields) {
+  // addressFields['Country'] = this.countryCode;
+  // console.log("Object that will be sent to backend",addressFields)
+  // this.addressService.searchAddress(addressFields);
+  //}
+
   searchAddress(addressFields) {
-   addressFields['Country'] = this.countryCode;
-   console.log("Object that will be sent to backend",addressFields)
-   this.addressService.searchAddress(addressFields);
+    addressFields['Country'] = this.countryCode;
+    var jsonObj = JSON.stringify(addressFields); 
+    console.log("Object that will be sent to backend", jsonObj)
+    this.addressService.searchAddress(jsonObj);
   }
 
   saveAddress(addressFields){
