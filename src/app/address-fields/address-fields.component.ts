@@ -36,9 +36,12 @@ export class AddressFieldsComponent implements OnInit,OnChanges {
 
     this.keys = Object.keys(this.addressFieldTemplate);
     this.keys.forEach(element => {
-      this.addressFieldValues.push(this.addressFieldTemplate[element].Value);
-      this.addressFieldTypes.push(this.addressFieldTemplate[element].Type);
-      this.addressFields.push(this.addressFieldTemplate[element].DisplayName);
+      if(element!="id"){
+        this.addressFieldValues.push(this.addressFieldTemplate[element].Value);
+        this.addressFieldTypes.push(this.addressFieldTemplate[element].Type);
+        this.addressFields.push(this.addressFieldTemplate[element].DisplayName);
+      }
+     
     });
     this.showButtons = true;
 
@@ -87,12 +90,18 @@ export class AddressFieldsComponent implements OnInit,OnChanges {
 
   checkIfFieldValuesFilled(addressFields){
     let count = 0
-    let reqFieldLen = this.keys.length;
+    let reqFieldLen = this.keys.length-2;
     this.keys.forEach(element => {
-      if(addressFields[element]){
-        count++;
+      console.log ("error check",element)
+      if(element!="id"){
+        console.log("inside if")
+        if(addressFields[element]){
+          count++;
+        }
       }
     });
+    console.log("count",count);
+    console.log("reqFieldLen",reqFieldLen)
     this.error = count == reqFieldLen ? false:true;
     console.log("error",this.error)
   }
