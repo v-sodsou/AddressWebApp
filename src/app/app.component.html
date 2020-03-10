@@ -8,6 +8,18 @@
     <app-country (countryCodeSelected)="getCountryFields($event)"></app-country>
     <app-address-fields (getAddress)="searchAddress($event)" (saveAddress)="saveAddress($event)" *ngIf="countryCode"></app-address-fields>
   </div>
+
+ <ng-container *ngIf="searchResults && searchResults.length > 0">
+   <span>Search Results</span>
+   <div *ngFor="let result of searchResults">
+     <span *ngIf="result.Country">{{result.Country}} </span>
+     <span *ngIf="result.AddressLine1">{{result.AddressLine1}} </span>
+     <span *ngIf="result.AddressLine2">{{result.AddressLine2}} </span>
+     <span *ngIf="result.StateOrCounty">{{result.StateOrCounty}} </span>
+     <span *ngIf="result.PostCode">{{result.PostCode}} </span>
+   </div>  
+
+ </ng-container>
   
 </div>
 <router-outlet></router-outlet>
