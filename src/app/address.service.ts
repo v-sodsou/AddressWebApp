@@ -10,19 +10,37 @@ export class AddressService {
 
 
   getCountries(){
-    let url ="https://locathost:5000/api/addresses/getAllCountries/"
-    return this.http.get<any>(url);
+    let url ="https://localhost:44365/address"
+    let request = this.http.get<any>(url, {
+      headers: new HttpHeaders({
+        ["Content-Type"]: 'application/json',
+      })
+    });
+    var response = request.subscribe();
+    return response;
   }
 
   getCountryFormat(countryCode){
-    let url = `https://locathost:5000/api/addresses/searchAddressFormat/${countryCode}`;
-    return this.http.get<any>(url);
+    let url = "https://localhost:44365/format/${countryCode}";
+    let request= this.http.get<any>(url, {
+      headers: new HttpHeaders({
+        ["Content-Type"]: 'application/json',
+      })
+    });
+    var response = request.subscribe();
+    return response;
   }
 
   postAddress(address){
     console.log("Address to send", address);
-    let url = "https://locathost:5000/api/addresses/postAddress";
-    return this.http.post<any>(url, {address});
+    let url = "https://localhost:44365/addAddress";
+    let request = this.http.post<any>(url, address, {
+      headers: new HttpHeaders({
+        ["Content-Type"]: 'application/json',
+      })
+    });
+    var response = request.subscribe();
+    return response;
   }
 
   postAddressFormat(){
@@ -38,6 +56,7 @@ export class AddressService {
       })
     });
     var response = request.subscribe();
+    return response;
   }
 
 }
