@@ -31,29 +31,35 @@ export class AddressFieldsComponent implements OnInit,OnChanges {
   }
 
   ngOnInit() {
-  console.log(this.addressFieldTemplate)
-  if(this.addressFieldTemplate){
-
-    this.keys = Object.keys(this.addressFieldTemplate);
-    this.keys.forEach(element => {
-      if(element!="id"){
-        this.addressFieldValues.push(this.addressFieldTemplate[element].Value);
-        this.addressFieldTypes.push(this.addressFieldTemplate[element].Type);
-        this.addressFields.push(this.addressFieldTemplate[element].DisplayName);
-      }
+  // console.log(this.addressFieldTemplate)
+  // if(this.addressFieldTemplate){
+  //   this.addressFieldValues =[];
+  //   this.addressFieldTypes = [];
+  //   this.addressFields =[];
+  //   this.keys =[];
+  //   this.keys = Object.keys(this.addressFieldTemplate);
+  //   this.keys.forEach(element => {
+  //     if(element!="id"){
+  //       this.addressFieldValues.push(this.addressFieldTemplate[element].Value);
+  //       this.addressFieldTypes.push(this.addressFieldTemplate[element].Type);
+  //       this.addressFields.push(this.addressFieldTemplate[element].DisplayName);
+  //     }
      
-    });
-    this.showButtons = true;
+  //   });
+  //   this.showButtons = true;
 
-  }
-    console.log("this.addressFields length",this.addressFields.length)
+  // }
+  //   console.log("this.addressFields length",this.addressFields.length)
   }
 
   ngOnChanges(changes: SimpleChanges) {
 		if (changes.addressFieldTemplate && changes.addressFieldTemplate.currentValue) {
       console.log("Address template",this.addressFieldTemplate)
       if(this.addressFieldTemplate){
-
+        this.addressFieldValues =[];
+        this.addressFieldTypes = [];
+        this.addressFields =[];
+        this.keys =[];
         this.keys = Object.keys(this.addressFieldTemplate);
         this.keys.forEach(element => {
           this.addressFieldValues.push(this.addressFieldTemplate[element].Value);
