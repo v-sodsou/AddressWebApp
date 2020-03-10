@@ -49,8 +49,8 @@ export class AppComponent {
 
   saveAddress(addressFields){
     addressFields['Country'] = this.countryCode;
-    console.log("Object that will be posted to backend",addressFields)
-    
-    this.addressService.postAddress(addressFields);
+    var jsonObj = JSON.stringify(addressFields); 
+    console.log("Object that will be posted to backend", jsonObj)
+    this.addressService.postAddress(jsonObj);
   }
 }
