@@ -31,7 +31,7 @@ export class AddressService {
 
   searchAddress(address) {
     console.log("Address to send", address);
-    let url = "/api/addresses/searchAddress";
+    let url = "https://localhost:44365/searchAddress";
     let request = this.http.post<any>(url, address, {
       headers: new HttpHeaders({
         ["Content-Type"]: 'application/json',

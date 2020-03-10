@@ -240,7 +240,7 @@ export class CountryComponent implements OnInit {
     {name: 'Ukraine', code: 'UA'},
     {name: 'United Arab Emirates', code: 'AE'},
     {name: 'United Kingdom', code: 'GB'},
-    {name: 'United States', code: 'US'},
+    {name: 'United States', code: 'USA'},
     {name: 'United States Minor Outlying Islands', code: 'UM'},
     {name: 'Uruguay', code: 'UY'},
     {name: 'Uzbekistan', code: 'UZ'},
