@@ -13,6 +13,9 @@ export class AppComponent {
   countryCode;
   searchResults;
   format;
+  savedAddress;
+  showSearchResults: boolean = false;
+  showSavedResults: boolean = false; 
 
   constructor(private addressService:AddressService,private http: HttpClient){}
 
@@ -59,12 +62,28 @@ export class AppComponent {
       console.log("result",this.searchResults);
 
     });
+    this.showSearchResults = true;
+    this.showSavedResults = false;
   }
 
   saveAddress(addressFields){
     addressFields['Country'] = this.countryCode;
     var jsonObj = JSON.stringify(addressFields); 
     console.log("Object that will be posted to backend", jsonObj)
-    this.addressService.postAddress(jsonObj);
+    //this.addressService.postAddress(jsonObj);
+    let url = "https://localhost:44365/addAddress";
+    let request = this.http.post<any>(url, jsonObj, {
+      headers: new HttpHeaders({
+        ["Content-Type"]: 'application/json',
+      })
+    });
+    //let result;
+    var response = request.subscribe(response => {
+      this.savedAddress = response;
+      console.log("SAved Address", this.savedAddress);
+
+    });
+    this.showSearchResults = false;
+    this.showSavedResults = true;
   }
 }

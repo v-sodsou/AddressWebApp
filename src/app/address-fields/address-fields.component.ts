@@ -96,10 +96,11 @@ export class AddressFieldsComponent implements OnInit,OnChanges {
 
   checkIfFieldValuesFilled(addressFields){
     let count = 0
+    console.log("Check adress fields", addressFields);
     let reqFieldLen = this.keys.length-2;
     this.keys.forEach(element => {
       console.log ("error check",element)
-      if(element!="id"){
+      if (element != "id" && element != "Country"){
         console.log("inside if")
         if(addressFields[element]){
           count++;
