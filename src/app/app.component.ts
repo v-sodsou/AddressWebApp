@@ -11,7 +11,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'address-app';
   countryCode;
-  searchResults$;
+  searchResults;
 
   constructor(private addressService:AddressService,private http: HttpClient){}
 
@@ -39,10 +39,10 @@ export class AppComponent {
         ["Content-Type"]: 'application/json',
       })
     });
-    let result;
+    //let result;
     var response = request.subscribe(response => {
-      result = response;
-      console.log("result",result);
+      this.searchResults = response;
+      console.log("result",this.searchResults);
 
     });
   }
