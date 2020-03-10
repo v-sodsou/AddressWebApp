@@ -12,12 +12,25 @@ export class AppComponent {
   title = 'address-app';
   countryCode;
   searchResults;
+  format;
 
   constructor(private addressService:AddressService,private http: HttpClient){}
 
   getCountryFields(countryCode){
     this.countryCode = countryCode;
-    this.addressService.getCountryFormat("USA");
+    //this.addressService.getCountryFormat("USA");
+    let url = "https://localhost:5001/searchAddressFormat/" + countryCode;
+    let request = this.http.get<any>(url,{
+      headers: new HttpHeaders({
+        ["Content-Type"]: 'application/json',
+      })
+    });
+    //let result;
+    var response = request.subscribe(response => {
+      this.format = response;
+      console.log("result format",this.format);
+
+    });
     console.log("CountryCode captured",countryCode);
   }
 

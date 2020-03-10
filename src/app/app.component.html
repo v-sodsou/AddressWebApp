@@ -6,7 +6,7 @@
   <img width="250" height="300" alt="Angular Logo" src="/assets/images/HomePageIcon.png">
   <div class="address-section" style="text-align:center">
     <app-country (countryCodeSelected)="getCountryFields($event)"></app-country>
-    <app-address-fields (getAddress)="searchAddress($event)" (saveAddress)="saveAddress($event)" *ngIf="countryCode"></app-address-fields>
+    <app-address-fields (getAddress)="searchAddress($event)" (saveAddress)="saveAddress($event)" [addressFieldTemplate]="format" *ngIf="countryCode"></app-address-fields>
   </div>
 
  <ng-container *ngIf="searchResults && searchResults.length > 0">

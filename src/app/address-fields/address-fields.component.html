@@ -10,7 +10,7 @@
         </option>
       </select>
     </div>
-    <div class="button-group">
+    <div class="button-group" *ngIf="showButtons">
       <button class="button" (click)="searchAddress()">Search Address</button>
       <button class="button" (click)="postAddress()">Save Address</button>
     </div>
