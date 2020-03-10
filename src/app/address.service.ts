@@ -43,8 +43,15 @@ export class AddressService {
     return response;
   }
 
-  postAddressFormat(){
-    
+  postAddressFormat(addressFormat){
+    let url = "https://localhost:44365/addAddressFormat";
+    let request = this.http.post<any>(url, addressFormat, {
+      headers: new HttpHeaders({
+        ["Content-Type"]: 'application/json',
+      })
+    });
+    var response = request.subscribe();
+    return response;
   }
 
   searchAddress(address) {
