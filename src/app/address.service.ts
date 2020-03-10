@@ -21,12 +21,8 @@ export class AddressService {
   }
 
   getCountryFormat(countryCode){
-    let url = "https://localhost:44365/format/${countryCode}";
-    let request= this.http.get<any>(url, {
-      headers: new HttpHeaders({
-        ["Content-Type"]: 'application/json',
-      })
-    });
+    let url = "https://localhost:44365/searchAddressFormat/" + countryCode;
+    let request= this.http.get<any>(url);
     var response = request.subscribe();
     return response;
   }

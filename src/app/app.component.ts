@@ -14,6 +14,7 @@ export class AppComponent {
 
   getCountryFields(countryCode){
     this.countryCode = countryCode;
+    this.addressService.getCountryFormat("USA");
     console.log("CountryCode captured",countryCode);
   }
 
