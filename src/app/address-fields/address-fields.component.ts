@@ -48,7 +48,7 @@ export class AddressFieldsComponent implements OnInit,OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
 		if (changes.addressFieldTemplate && changes.addressFieldTemplate.currentValue) {
-      console.log(this.addressFieldTemplate)
+      console.log("Address template",this.addressFieldTemplate)
       if(this.addressFieldTemplate){
 
         this.keys = Object.keys(this.addressFieldTemplate);

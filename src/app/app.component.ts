@@ -19,7 +19,7 @@ export class AppComponent {
   getCountryFields(countryCode){
     this.countryCode = countryCode;
     //this.addressService.getCountryFormat("USA");
-    let url = "https://localhost:5001/searchAddressFormat/" + countryCode;
+    let url = "https://localhost:44365/searchAddressFormat/" + countryCode;
     let request = this.http.get<any>(url,{
       headers: new HttpHeaders({
         ["Content-Type"]: 'application/json',
@@ -47,7 +47,7 @@ export class AppComponent {
     //this.searchResults$ = this.addressService.searchAddress(jsonObj);
     //console.log("search results",this.searchResults$)
 
-    let url = "https://localhost:5001/searchAddress";
+    let url = "https://localhost:44365/searchAddress";
     let request = this.http.post<any>(url, jsonObj, {
       headers: new HttpHeaders({
         ["Content-Type"]: 'application/json',
